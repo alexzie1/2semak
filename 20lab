@@ -1,0 +1,189 @@
+alexey@alexey-TM1613:~/Рабочий стол$ dd if=perv.txt of=obs.txt bs=1M seek=0
+0+1 записей получено
+0+1 записей отправлено
+383 байта скопировано, 0,000569743 s, 672 kB/s
+alexey@alexey-TM1613:~/Рабочий стол$ dd if=vtor.txt of=obs.txt bs=1M seek=100
+0+1 записей получено
+0+1 записей отправлено
+1181 байт (1,2 kB, 1,2 KiB) скопирован, 0,000458435 s, 2,6 MB/s
+alexey@alexey-TM1613:~/Рабочий стол$ cat obs.txt 
+В начале июля, в чрезвычайно жаркое время, под вечер, один молодой человек вышел из своей каморки, которую нанимал от жильцов в С — м переулке, на улицу и медленно, как бы в нерешимости, отправился к К — ну мосту.
+
+Он благополучно избегнул встречи с своею хозяйкой на лестнице. Каморка его приходилась под самою кровлей высокого пятиэтажного дома и походила более на шкаф, чем на квартиру. Квартирная же хозяйка его, у которой он нанимал эту каморку с обедом и прислугой, помещалась одною лестницей ниже, в отдельной квартире, и каждый раз, при выходе на улицу, ему непременно надо было проходить мимо хозяйкиной кухни, почти всегда настежь отворенной на лестницу. И каждый раз молодой человек, проходя мимо, чувствовал какое-то болезненное и трусливое ощущение, которого стыдился и от которого морщился. Он был должен кругом хозяйке и боялся с нею встретиться.
+
+alexey@alexey-TM1613:~/Рабочий стол$ dd if=obs.txt bs=128 count=2
+В начале июля, в чрезвычайно жаркое время, под вечер, один молодой человек вышел из своей каморки, которую нанимал от жильцов в С — м переулк 2+0 записей получено
+2+0 записей отправлено
+256 байт скопировано, 0,000135895 s, 1,9 MB/s
+
+alexey@alexey-TM1613:~/Рабочий стол/lab$ bzip2 obs.txt 
+alexey@alexey-TM1613:~/Рабочий стол/lab$ ls
+obs.txt.bz2  perv.txt  vtor.txt
+alexey@alexey-TM1613:~/Рабочий стол/lab$ bzip2 -d obs.txt.bz2 
+alexey@alexey-TM1613:~/Рабочий стол/lab$ ls
+obs.txt  perv.txt  vtor.txt
+alexey@alexey-TM1613:~/Рабочий стол/lab$ bzip2 perv.txt  vtor.txt
+alexey@alexey-TM1613:~/Рабочий стол/lab$ ls
+demo  obs.txt  perv.txt.bz2  vtor.txt.bz2
+alexey@alexey-TM1613:~/Рабочий стол/lab$ ls
+demo  obs.txt  perv.txt  vtor.txt
+alexey@alexey-TM1613:~/Рабочий стол/lab$ bzip2 -9 *.txt
+alexey@alexey-TM1613:~/Рабочий стол/lab$ ls
+demo  obs.txt.bz2  perv.txt.bz2  vtor.txt.bz2
+alexey@alexey-TM1613:~/Рабочий стол/lab$ 
+
+alexey@alexey-TM1613:~/Рабочий стол$ comm no.txt 22.txt 
+		1
+	10
+		2
+3
+		4
+5
+5
+6
+comm: данные файла 1 не отсортированы
+
+	7
+comm: данные файла 2 не отсортированы
+	2
+	
+alexey@alexey-TM1613:~/Рабочий стол$ cat 22.txt 
+1
+10
+2
+4
+7
+2
+
+alexey@alexey-TM1613:~/Рабочий стол$ cat no.txt 
+1
+2
+3
+4
+5
+5
+6
+
+alexey@alexey-TM1613:~/Рабочий стол$ cmp 22.txt no.txt 
+22.txt no.txt различаются: байт 7, строка 1
+alexey@alexey-TM1613:~/Рабочий стол$ cat no.txt 
+1 2 3 4 5
+alexey@alexey-TM1613:~/Рабочий стол$ cat 22.txt 
+1 2 3 5 6
+
+alexey@alexey-TM1613:~/Рабочий стол$ wc no.txt 22.txt 
+ 8  7 15 no.txt
+ 7  6 14 22.txt
+15 13 29 итого
+
+alexey@alexey-TM1613:~/Рабочий стол$ diff no.txt  22.txt 
+1a2
+> 10
+3d3
+< 3
+5,7c5,6
+< 5
+< 5
+< 6
+---
+> 7
+> 2
+
+alexey@alexey-TM1613:~/Рабочий стол$ join 22.txt no.txt 
+1 w2wfww adwefw
+2 qfwef  efw d
+join: no.txt:8: без сортировки: 
+join: 22.txt:6: без сортировки: 2
+alexey@alexey-TM1613:~/Рабочий стол$ cat no.txt 
+1 adwefw
+2 efw d
+3wf ewef w
+4f wef 
+5 ewt wf
+5wde d
+6 fwefw
+
+alexey@alexey-TM1613:~/Рабочий стол$ cat 22.txt 
+1 w2wfww
+10e ewdf w
+2  qfwef 
+4 wfw 
+7 wef 
+2
+we
+
+alexey@alexey-TM1613:~/Рабочий стол$ sort no.txt 
+
+белый
+белый
+желтый 
+зеленый
+красный 
+розовый
+alexey@alexey-TM1613:~/Рабочий стол$ cat no.txt
+красный 
+белый
+желтый 
+зеленый
+розовый
+белый
+
+alexey@alexey-TM1613:~/Рабочий стол$ sort -r no.txt 
+розовый
+красный 
+зеленый
+желтый 
+белый
+белый
+
+alexey@alexey-TM1613:~/Рабочий стол$ tail -5 no.txt 
+желтый 
+зеленый
+розовый
+белый
+
+echo "Body of file..." | sudo tee 123.txt
+[sudo] пароль для alexey: 
+Попробуйте ещё раз.
+[sudo] пароль для alexey: 
+Body of file...
+alexey@alexey-TM1613:~/Рабочий стол$ cat 123.txt 
+Body of file...
+
+alexey@alexey-TM1613:~/Рабочий стол$ tr 'а-я' 'a-z'
+^Z
+[1]+  Остановлено  tr 'а-я' 'a-z'
+alexey@alexey-TM1613:~/Рабочий стол$ tr 'а-я' 'a-z' < no.txt 
+zlz�zbz�zoz�zk 
+zczgzmz�zk
+zhzgzmz�z�zk 
+zizgzmzgzoz�zk
+z�zpzizpzdz�zk
+zczgzmz�zk
+
+alexey@alexey-TM1613:~/Рабочий стол$  sed -e 's/белый/небелый/g' no.txt > yes.txt
+alexey@alexey-TM1613:~/Рабочий стол$ cat yes.txt 
+красный 
+небелый
+желтый 
+зеленый
+розовый
+небелый
+
+alexey@alexey-TM1613:~/Рабочий стол$ cat no.txt 
+красный 
+белый
+желтый 
+зеленый
+розовый
+белый
+
+
+
+
+
+
+
+
+
+
