@@ -1,0 +1,34 @@
+#!/bin/bash
+#! объединение в 1 файлов  с указанным суффиксом и размером меньше данного
+suff=$1
+razmer=$2
+
+echo "суффикс сохранен: $suff"
+echo "размер сохранен: $razmer"
+
+
+read -p "Если хотите изменить параметры нажмите 1,если нет,то 2: " otvet;
+
+while [ $otvet -eq 1 ]
+    do
+        { read -p "суффикс=" newsuff; read -p "размер в байтах=" newrazmer ;}
+        echo "суффикс сохранен: $newsuff"
+        echo "размер сохранен: $newrazmer"
+        read -p "Если хотите изменить параметры нажмите 1,если нет,то 2: " otvet;
+    done
+
+
+if [[  $otvet -eq 2 ]];then
+    suffix=*$newsuff
+    ARRAY=($suffix)
+    ELEMENTS=${#ARRAY[*]}
+    for (( i=0;i<$ELEMENTS;i++)); do
+	    inew=$(stat -f%z ${ARRAY[i]})
+	    if [[  $inew -lt $newrazmer  ]];then
+		    cat ${ARRAY[i]}>>obshiy.txt
+        fi
+    done
+fi
+
+
+
