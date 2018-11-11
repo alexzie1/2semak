@@ -1,0 +1,187 @@
+\documentclass[a4paper,14pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{mathtext}
+\usepackage{amsmath,amsfonts,amsthm,mathtools}
+\usepackage{icomma}
+\pagestyle{headings}
+\setcounter{page}{268}
+\usepackage{textcomp}
+\oddsidemargin=-0.3cm
+
+\evensidemargin= 0cm
+
+\topmargin=-50pt
+
+\textheight=35cm
+
+\textwidth=16cm
+
+\begin{document}
+	
+	
+\markboth{\large\textsc{системы обыкновенных диференциальных уравнений$\;$ [гл. VII}}{\large\textsc{\S 2] Системы обыкновенных диференциальных уравнений$\;$ [гл. VII}}
+\normalsize Нам удобно теперь писать данную линейную систему в таком виде:
+
+\begin{equation}
+	\left.
+\begin{array}{ccc}
+\frac{dy_1}{dx} = a_{11}y_1 + a_{12}y_2 + ... + a_{1n}y_n,\\
+
+\frac{dy_2}{dx} = a_{21}y_1 + a_{22}y_2 + ... + a_{2n}y_n,\\
+\ldots\ \ldots\ \ldots\ \ldots\ \ldots\ \ldots\ \ldots\ \ldots\ \ldots\ \ \\
+
+\frac{dy_n}{dx} = a_{n1}y_1 + a_{n2}y_2 + ... + a_{nn}y_n,
+
+\end{array} 
+	\right\} \tag{23}
+\end{equation}
+
+Для удобства введем еще обозначения:$ \dfrac{dy_1}{dx}\equiv Y_i(i = 1,2, \dots , n)$.\;
+После этого\linebreak
+умножим уравнения (23) соответственно на систему вспомогательных перемен-\linebreak
+ных $u_1,u_2,\dots, u_n$ и сложим почленно. \;
+В левой части мы получим б и л и \linebreak н е й н у ю \; ф о р м у переменных $u_1,u_2,\dots, u_n$;$Y_1,Y_2,\dots, Y_n$:
+
+\begin{equation}
+\left
+ \sum_{i=1} ^n u_iY_i ,\\ 
+ \right  \tag{24} 
+ \end{equation}
+ 
+а справа билинейную форму переменных $u_1,u_2,\dots, u_n$; $y_1,y_2,\dots, y_n$:\linebreak
+
+\begin{equation}
+\left
+ \sum_{i=1} ^n \sum_{k=1} ^n a_{1k}u_1y_k.\\ 
+ \right  \tag{25} 
+ \end{equation}
+
+Заметим, что матрица из коэфициентов формы (24) eсть eдиничная матрица \textbf{$E_r$}\linebreak
+т.е. матрица, у которой диагональные элементы суть единицы, в все прочие - \linebreak
+нули; матрица формы (25)\\
+
+\[ A \equiv \begin{Vmatrix}
+$a_{11}$ & \ldots & $a_{1n}$ \\
+\hdotsfor{3} \\
+$a_{n1}$ & \ldots & $a_{nn}$
+\end{Vmatrix} \]
+
+есть матрица, составленная их коэфициентов правых частей диференциальных\linebreak
+уравнений(23).Таким образом задание двух билинейных форм (24) и (25), из \linebreak
+которых первая - с единичной матрицей, равносильно заданию системы дифе- \linebreak
+ренциальных уравнений (23).\\
+
+Если мы, далее, подвергнем переменные $y_i$ линейному преобразованию \linebreak
+с постоянными коэфициентами:\\
+
+\begin{equation}
+	\left.
+\begin{array}{ccc}
+$y_i$ = $a_{i1}z_1 + a_{i2}z_2 + \ldots + a_{in}z_n $ $\;\;\;\;$(i = 1, 2, \ldots , n),
+\end{array} 
+	\right \tag{26}
+\end{equation}
+
+то, ввиду значения $Y_i$, как производных от $y_i$, они подвергнутся тому же \linebreak
+преобразованию:
+
+\begin{equation}
+	\left.
+\begin{array}{ccc}
+$Y_i$ = $a_{i1}Z_1 + a_{i2}Z_2 + \ldots + a_{in}Z_n $ $\;\;\;\;$(i = 1, 2, \ldots , n),
+\end{array} 
+	\right \tag{26'}
+\end{equation}
+
+причем $Z_i = \dfrac{dz_i}{dx}.$
+
+Составим матрицу  \textbf{A} - \lambda$E_r$, или в раскрытом виде:
+
+\[ \begin{Vmatrix}
+$a_{11}-\lambda$ & a_{12} & \ldots & $a_{1n}$ \\
+$a_{21}$ & $a_{22}- \lambda$ & \ldots & $a_{2n}$ \\
+\hdotsfor{4} \\
+$a_{n1}$ & $a_{n2}$ & \ldots & $a_{nn}-\lambda$\\
+\tag{27}
+\end{Vmatrix} \]
+
+По теореме о парах билинейных форм $1^)$ \emph{две биленейные формы (24) и \linebreak
+(25) эквивалентны другой паре биленейных форм $\phi, \psi$ тогда и только тогда,}\linebreak
+______________
+
+$1^)$ Бохер, Цитированная книга, стр 258-259.
+\newpage
+\emph{когда матрица (27) и матрица формы $\phi - \lambda\psi$ имеют одни и те же элемен-\linebreak
+тарные делители} (при этом матрица $\psi$ должна быть не особенною, т. е. ее\linebreak
+детерминант \neq 0) $1^)$.\\
+
+Пусть элементарные делители матрицы (27) будут:
+
+\begin{equation}
+	\left.
+\begin{array}{ccc}
+(\lambda- \lambda_1)^{e_1},(\lambda- \lambda_2)^{e_2}, \ldots, (\lambda- \lambda_k)^{e_k$,}
+\end{array} 
+	\right \tag{28}
+\end{equation}
+
+где $\lambda_1, \lambda_2, \ldots, \lambda_k$ - корни детерминантного уравнения матрицы (27), т. е. харак-\linebreak
+терестичиского уравнения системы (23), может быть и равные, но соответ-\linebreak
+ствующие различным элементарным делителям, и \\
+
+
+ $$\sum_{i=1} ^n e_i = n.$$\\ 
+
+ 
+ В качестве матрицы формы $\psi$ в новых переменных $\nu_i,Z_i$ мы возьмем \linebreak
+ опять единичную матрицу E (очевидно,неособенную), т. е.
+ 
+ \begin{equation}
+	\left.
+\begin{array}{ccc}
+$\psi = \nu_1Z_1 + \nu_2Z_2+ \ldots + \nu_nZ_n.$
+\end{array} 
+	\right \tag{24'}
+\end{equation}
+
+_________
+
+$1^)$ Элементарные делители матрицы вида (27) - а мы только с такими \linebreak
+матрицами встретимся в нашей теории - могут быть определены следующим\linebreak
+образом. Обозначим через $D_i(\lambda)$, (i = 1, 2, \ldots, n), общий наибольший дели-\linebreak
+тель всех определителей порядка i матрицы (27), рассматриваемых как много-\linebreak
+член относительно $\lambda$. Тогда доказывается: (A), что многочлен D_$i(\lambda)$ делится на \linebreak
+$D_{i-1}(\lambda), (i \geq 2).$
+Введем обозначение $\dfrac{D_{i}(\lambda)}{D_{i-1}(\lambda),}$ = $E_i(\lambda)$, (i = 1, 2, \ldots, n), $E_1 = $ \linebreak
+$D_i(\lambda)$ = $E_1(\lambda)E_2(\lambda) \ldots E_i(\lambda).$
+Далее доказывается: (В), что в ряду инвариантных \linebreak
+множителей\\
+
+$$E_1(\lambda) \;\;\;\;\;\; E_2(\lambda) \;\;\;\;\;\; \ldots \;\;\;\;\;\; E_n(\lambda) $$\linebreak
+каждый из них делится на все предыдущие. Напишем разложение инвариант-\linebreak
+ных множителей на линейные факторы:\\
+
+$$E_i(\lambda) = {(\lambda - \lambda_1)}^{e_{i1}}{(\lambda - \lambda_2)}^{e_{i2}} \ldots {(\lambda - \lambda_s)}^{e_{is}},$$
+
+где $\lambda_1, \lambda_2, \; \ldots , \lambda_s$ - различные корни уравнения, полученного приравниванием\linebreak
+нулю детерминанта матрицы (27);очевидно, $e_{1j} \geq 0$(i = 1, 2, \ldots, n;j = 1, 2, \ldots, s);\linebreak
+кроме того, в силу свойства (В) $e_{1j} \leq e_{1'j'}$, если i<i'. Те из двучленов\\
+
+
+
+$$(\lambda-\lambda_1)^{e_{11}},\;\; (\lambda-\lambda_1)^{e_{21}}, \;\; \ldots, \;\; (\lambda-\lambda_1)^{e_{n1}}\\$$
+
+
+$$ \ldots \ldots \ldots\ \ldots\ \ldots\ \ldots\ \ldots\ \ldots\ \ldots\ \ldots\ \ldots\ \ \\$$
+
+$$(\lambda-\lambda_s)^{e_{1s}}, \;\; (\lambda-\lambda_s)^{e_{2s}}, \;\;  \ldots, \;\; (\lambda-\lambda_s)^{e_{ns}},\\$$
+
+которые не равны постоянному (т. е. для которых $e_{1j}>0$), называются \emph{элемен-\linebreak
+тарными делителями} матрицы (24). Делители первой строчки  соответствуют\linebreak
+корню $\lambda_1, \; \ldots,$ делители последней соответствуют корню $\lambda_k$. Число $e_{1j}$ называется \linebreak
+\emph{степенью} элементарного делителя. Для простоты в дальнейшем бедум обозна-\linebreak
+чать число элементарных делителей через k, а сами делители через $(\lambda-\lambda_1)^{e_1}$,\ldots\linebreak
+\ldots, $(\lambda-\lambda_k)^{e_k}$ причем среди чисел $\lambda_1$ могут быть и равные,
+\end{document}
+
