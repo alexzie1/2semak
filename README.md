@@ -1,2 +1,2 @@
 # 2semak
-labs za 2 semai
+Лабки за 2 семак
